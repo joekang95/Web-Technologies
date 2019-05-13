@@ -1,0 +1,73 @@
+.text-blend {
+    color: purple;
+}
+
+.progress-wrapper {
+    position: relative;
+}
+
+.progress-wrapper .text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    text-align: center;
+    width: 10%;
+    z-index: 1;
+}
+.image-border {
+    border: 10px solid rgb(30,30,30);
+}
+
+md-autocomplete md-autocomplete-wrap md-progress-linear { 
+    display: none !important; 
+}
+
+md-autocomplete {
+    border-radius: 5px !important;
+}
+
+md-autocomplete input:focus {
+    border: 1px solid #80bdff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25) !important;
+    border-radius: 5px !important;
+}
+.invalid md-autocomplete input {
+    border: 1px solid #dc3545 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.25) !important;
+    border-radius: 5px !important;
+}
+md-tooltip {
+    height: auto !important;
+    max-width: 200px !important;
+    white-space: normal !important;
+    text-align: center !important;
+}
+.animate-slide {
+    position: relative;
+}
+
+.animate-slide.ng-hide-remove {
+    animation: 0.5s slide-right;
+}
+
+@keyframes slide-right {
+  0%   {left: 0%;}
+  100%  {left: 150%;}
+}
+
+
+@media (max-width: 576px) { 
+    .tab-item {
+        max-width: 20%;
+    }
+    .tab-item a span{
+        margin-left: -8px;
+    }
+    #form {
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title> Homework 4 </title>
+    <meta name="author" content="Joe Chang">
+    
+    <style>
+        html, body{
+            min-width: 800px;
+            margin: 0;
+        }
+        h1{
+            width: 800px;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        
+        function queryJSON(input){
+            filename = input.filename.value;
+            document.getElementById("inputBox").value = filename;
+            load = true;
+            if(filename != ""){
+                var jsonFile = loadJSON(filename);
+                if(load){
+                    if(jsonFile == "" || !jsonFile.hasOwnProperty("Mainline")){
+                        alert("JSON File is Empty");
+                    }
+                    else if(!jsonFile.Mainline.hasOwnProperty("Table")){
+                        alert("JSON File Contains No Table");
+                    }
+                    else if(!jsonFile.Mainline.Table.hasOwnProperty("Header") || !jsonFile.Mainline.Table.Header.hasOwnProperty("Data") || jsonFile.Mainline.Table.Header.Data.length == 0){
+                        alert("JSON File Contains No Header Data");
+                    }
+                    else if (!jsonFile.Mainline.Table.hasOwnProperty("Row") || jsonFile.Mainline.Table.Row.length == 0){
+                        alert("JSON File Contains No Row Data");
+                    }
+                    else{
+                        jsonFile.onload = generateHTML(jsonFile);
+                        newWin = window.open('', 'Assignment 4', '_blank, height = auto, width = 1000');
+                        newWin.document.write(html_text);
+                        newWin.document.close();	
+                    }
+                }
+            }
+            else{
+                alert("Please Enter File Name.") 
+            }
+        }
+        
+        function loadJSON(url){
+            try{
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", url, false);
+                xmlhttp.send();
+            }
+            catch{
+                //local
+                alert("File: \"" + filename + "\" Not Found.");
+                load = false;
+            }  
+            try{
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
+                    //server
+                    alert("File: \"" + filename + "\" Not Found.");
+                    load = false;     
+                }
+                else if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    if(xmlhttp.responseText != ""){
+                        var jsonFile = JSON.parse(xmlhttp.responseText);
+                        return jsonFile;
+                    }
+                    else if(xmlhttp.responseText == ""){
+                        return "";
+                    }
+                }
+            }
+            catch(err){
+                alert(err);
+                load = false;
+            }
+            
+        }
+           
+        function generateHTML(jsonFile){
+            html_text = "<html><head><title>Highest-grossing films</title><style>html,body{margin: 0;}</style></head><body>";
+            html_text += "<table border='1'>";
+
+            html_text += "<thead>" + "<tr>"; 
+            var headers = jsonFile.Mainline.Table.Header.Data;
+            headers.forEach(addHeadElement);
+            html_text += "</tr>" + "</thead>";
+                
+            html_text += "<tbody>";
+            var rows = jsonFile.Mainline.Table.Row;
+            rows.forEach(addRowElement);
+            html_text += "</tbody>";
+                
+            html_text += "</table>";
+            html_text += "</body></html>"; 
+        }
+        
+        function addHeadElement(item){
+            html_text += "<th>" + item + "</th>";
+        }
+        
+        function addRowElement(item){
+            html_text += "<tr>"; 
+            html_text += "<td>" + item.Title + "</td>";
+            html_text += "<td>" + item.Year + "</td>";
+            
+            html_text += "<td><ul>";
+            var hub = item.Hubs;
+            bold = true;
+            for(var i in hub){
+                hub[i].forEach(addInfoElement);
+            }
+            html_text += "</ul></td>";
+            
+            html_text += "<td>" + item.Gross + "</td>"; 
+            html_text += "<td><a href=\"" + item.HomePage +"\">" + item.HomePage + "</a></td>";
+            html_text += "<td><img src=\"" + item.Logo + "\"></td>";
+            html_text += "</tr>"; 
+        }
+        
+        function addInfoElement(item, index){
+            html_text += "<li>";
+            if(index == 0 && bold){html_text += "<b>";}
+            html_text += item;
+            if(index == 0 && bold){html_text += "</b>";bold = false}
+            html_text += "</li>";
+        }
+        
+    </script>
+</head>
+ 
+<body>
+    
+    <center>
+        <h1> Enter URL for Highest-grossing films List JSON File</h1>
+        <form method="POST">
+            <input type="text" name="filename" maxlength="255" size="30" id="inputBox"/>
+            <br><br>
+            <input type="button" name="submit" value="Submit Query" onClick="queryJSON(this.form)"/>
+        </form>
+    </center>  
+
+</body>
+    
+</html>

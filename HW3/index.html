@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title> Homework 3 </title>
+    <meta name="author" content="Joe Chang">
+	<link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+<style>
+/* For Checking */
+/* * {
+ outline: 1px solid black;
+}*/
+html, body {
+	margin: 0;
+	padding: 0;
+    /* overflow-x: hidden;*/
+}
+/* Navigation Bar */
+.navbar {
+    position: absolute;
+    top: 23px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 720px;
+    text-align: center;
+}
+/* Navigation Bar Links */
+.navbar a {
+    margin-left: 18px;
+    color: #FFF;
+    font-family: "Verdana", bold, Sans-serif;;
+    font-size: 8px;
+    font-weight: bold;
+    vertical-align: middle;
+    text-decoration: none;
+}
+/* Home Background Image*/
+.homeimg {
+	overflow: hidden;
+    margin: auto;
+    background-image: url("http://csci571.com/hw/hw3/images/snow1.jpg");
+    height: 630px; 
+    width: 720px;
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 1000px 694px;
+}
+/* Middle Title */
+.caption {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 166px;
+    width: 250px;
+    color: #FFF;
+    font-size: 64px;
+    font-family: 'Mukta', Sans-serif;
+    font-weight: bold;
+    line-height: 1.0;
+    text-align: center;
+}
+/* Middle Description */
+.description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 344px;
+    width: 360px;
+    color: #FFF;
+    font-size: 14px;
+    font-family: Sans-serif;
+    text-align: center;
+    line-height: 1.6;
+}
+/* Learn More Button*/
+.learn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 470px;
+    width: 100px;
+    color: #000;
+    font-size: 9px;
+    font-family: Sans-serif;  
+    font-weight: bold; 
+    text-align: center;
+    background-color: white;
+    padding: 12px 0px 12px 0px;
+}
+/* Down Arrow */
+/*.down {
+    position: absolute;
+    left: 49.2%;
+    top: 590px;
+    border: solid white;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 10px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}*/
+/* Gallery Section */
+#gallery {
+    margin: auto;
+    width: 720px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+/* Gallery Images */
+#gallery img{
+    object-fit: cover;
+    float: left;
+    width: 300px;
+    height: 300px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+}
+/* Gallery Text */
+.photodescription{
+    width: 350px;
+    margin-top: 650px;
+    margin-left: 160px;
+    font-size: 10px;
+    font-family: Sans-serif; 
+    line-height: 1.6;
+} 
+/* Journal Background Image */
+.journalimg {
+    margin: auto;
+    background-image: url("http://csci571.com/hw/hw3/images/snow6.jpg");
+    margin-bottom: 50px;
+    height: 630px; 
+    width: 720px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1000px 694px;
+}
+/* Journal Text */
+.journaldescription{
+	width: 390px;
+	position: absolute;
+	color: #FFF;
+	left: 50%;
+    transform: translateX(-50%);
+    margin-top: 250px;
+    text-align: center;
+    font-size: 14px;
+    font-family: Sans-serif; 
+    line-height: 1.6;
+} 
+@media only screen and (max-width: 736px) {
+    .navbar {
+        left: 360px;
+    }
+    .caption {
+    	left: 360px;
+    }
+    .description {
+    	left: 360px;
+    }
+    .learn {
+    	left: 360px;
+    }
+    .down {
+    	left: 360px;
+    }
+    .journaldescription {
+    	left: 360px;
+    }
+}
+</style>
+</head>
+    
+<body>
+    
+<!--Home-->
+<div id="home"> 
+	<div class="navbar">
+	    <div class="content">
+	        <a style = "font-size: 20px; margin-right: 30px;margin-left: 0px;">SNOWBOARD CENTRAL</a>
+	        <a>HOME</a>
+	        <a>ABOUT</a>
+	        <a>GALLERY</a>
+	        <a>JOURNAL</a>
+	        <a>CONTACT</a>
+	    </div>
+	</div>
+    <div class="homeimg"></div>
+    <div class="caption">
+        <span class="border">Bend the Mind</span>
+    </div>
+    <div class="description">
+        <span>James Jantz is a snowboarder living in Jackson Hole, WY 
+        and riding around the world. Lorem ipsum dolor sit amet
+        consectetuer adipiscing elit nam nibh. Nunc varius facilsis
+        eros sed erat in in velit quis arcu ornare laoreet.</span>
+    </div>
+    <div class="learn">
+        <span>LEARN MORE</span>
+    </div>
+    <!--<div class="down"></div>-->
+</div>
+    
+<!--Gallery-->
+<div id="gallery">
+    <img src="http://csci571.com/hw/hw3/images/snow2.jpg" alt="snow2" style="margin-left: 50px;">
+    <img src="http://csci571.com/hw/hw3/images/snow3.jpg" alt="snow3">
+    <img src="http://csci571.com/hw/hw3/images/snow4.jpg" alt="snow4" style="margin-left: 50px;">
+    <img src="http://csci571.com/hw/hw3/images/snow5.jpg" alt="snow5">
+    <div class="photodescription">
+        <span>Lorem ipsum dolor sit amet consectetuer adipiscing elit nam nibh. Nunc varius
+        facilsis eros sed erat in in velit quis arcu ornare laoreet. Curabitur adipiscing luscuts
+        massa. Integer ut purus ac augue commodo. Nunc nec mi eu justo tempor
+        consectetuer. Etiam vitae nisl. In dignissim lacuss ut ante.
+        <br><br>
+        Photography courtesy of Carl Sutter.</span>
+    </div> 
+</div>  
+    
+<!--Jorunal-->
+<div id="journal">
+    <div class="journaldescription">
+    	<span>Lorem ipsum dolor sit amet consectetuer adipiscing elit nam 
+    	nibh.  Nunc varius facilsis eros sed erat in in velit quis arcu
+   		ornare laoreet.</span>
+   	</div>
+    <div class="journalimg"></div>
+</div>  
+
+</body>
+</html>

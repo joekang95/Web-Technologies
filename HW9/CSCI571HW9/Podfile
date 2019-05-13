@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.2'
+
+target 'CSCI571HW9' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for CSCI571HW9
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
+  pod 'McPicker', '~> 2.0.0'
+  pod 'Toast-Swift', '~> 4.0.0'
+  pod 'SwiftSpinner'
+
+end
+
+workspace 'CSCI571HW9'
